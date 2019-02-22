@@ -1,5 +1,6 @@
 import tobii_research as tr
 import cv2, time, datetime, math
+import numpy as np
 
 #frame default size
 frame_w = 1920 / 1.5
