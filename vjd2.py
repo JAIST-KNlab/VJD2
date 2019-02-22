@@ -23,8 +23,8 @@ print("Name (It's OK if this is empty): " + my_eyetracker.device_name)
 print("Serial number: " + my_eyetracker.serial_number)
 
 #prepare image and blur
-img = cv2.imread("img/A2.jpg")
-img3 = cv2.imread("img/A3.jpg")
+img = cv2.imread("./img/A2.jpg")
+img3 = cv2.imread("./img/A3.jpg")
 
 
 cv2.imshow('motif',img)
@@ -41,7 +41,7 @@ def disp_gaze_circle(gaze_data):
 	cv2.waitKey(3)
 
 def generate_motif(_ks):
-	img = cv2.imread("img/A2.jpg")
+	img = cv2.imread("./img/A2.jpg")
 	if _ks % 2 == 0:#フレームサイズを奇数固定(ルール)
 		_ks = _ks- 1
 	if _ks < 0 :#顔が遠すぎればぼかさない元画像を表示
