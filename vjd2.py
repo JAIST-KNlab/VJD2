@@ -22,8 +22,8 @@ print("Name (It's OK if this is empty): " + my_eyetracker.device_name)
 print("Serial number: " + my_eyetracker.serial_number)
 
 #prepare image and blur
-img = cv2.imread("A2.jpg")
-img3 = cv2.imread("A3.jpg")
+img = cv2.imread("img/A2.jpg")
+img3 = cv2.imread("img/A3.jpg")
 
 
 cv2.imshow('motif',img)
@@ -33,14 +33,14 @@ cv2.waitKey()
 
 #draw circle on gaze point
 def disp_gaze_circle(gaze_data):
-	both_gaze_point_on_display_area = [(gaze_data['left_gaze_point_on_display_area'][0] + gaze_data['right_gaze_point_on_display_area'][0]) / 2, (gaze_data['left_gaze_point_on_display_area'][1] + gaze_data['right_gaze_point_on_display_area'][1]) / 2]    
+	both_gaze_point_on_display_area = [(gaze_data['left_gaze_point_on_display_area'][0] + gaze_data['right_gaze_point_on_display_area'][0]) / 2, (gaze_data['left_gaze_point_on_display_area'][1] + gaze_data['right_gaze_point_on_display_area'][1]) / 2]
 	img = np.full((frame_w, frame_h, 3), 128, dtype=np.uint8)
-    cv2.circle(img, (both_gaze_point_on_display_area[0] * frame_w, both_gaze_point_on_display_area[1] * frame_h) , 20, (0, 255, 0), thickness=1, lineType=cv2.LINE_AA)
-    cv2.imshow("image",img)
-    cv2.waitKey(3)
+	cv2.circle(img, (both_gaze_point_on_display_area[0] * frame_w, both_gaze_point_on_display_area[1] * frame_h) , 20, (0, 255, 0), thickness=1, lineType=cv2.LINE_AA)
+	cv2.imshow("image",img)
+	cv2.waitKey(3)
 
 def generate_motif(_ks):
-	img = cv2.imread("A2.jpg")
+	img = cv2.imread("img/A2.jpg")
 	if _ks % 2 == 0:#フレームサイズを奇数固定(ルール)
 		_ks = _ks- 1
 	if _ks < 0 :#顔が遠すぎればぼかさない元画像を表示
